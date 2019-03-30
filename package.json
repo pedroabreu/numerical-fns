@@ -1,0 +1,8 @@
+{
+  "name": "numerical-fns",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:pedroabreu/numerical-fns.git",
+  "author": "Pedro Abreu <pmig.abreu@gmail.com>",
+  "license": "MIT"
+}
