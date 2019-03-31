@@ -9,7 +9,7 @@ const DEFAULT_OPTIONS = {
     useParentesis: false
 }
 
-export function formatCurrency(value, options = {}) {
+export default function formatCurrency(value, options = {}) {
     const currencyLocale = options.locale || defaultLocale
 
     if (!currencyLocale.currency || !currencyLocale.locale) {
