@@ -1,4 +1,4 @@
-import { formatCurrency } from "./index"
+import formatCurrency from "./index"
 
 import enUS from "../locale/en-us"
 import enGB from "../locale/en-gb"
