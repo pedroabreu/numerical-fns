@@ -4,7 +4,7 @@ Collection of formatters to transform numbers.
 
 ## Motivation
 
-The defacto numerical library (numeraljs) hasn't been updated since 2017. And that's not a bad thing (if it's not broken, don't try to fix it), but as ECMAScript evolves and we drop browsers that we need to support anymore, I decided to give it a go at this and attempt to make a tree-shakeable version, using Internationalization API to leverage off locales.
+The defacto numerical library ([numeraljs](https://github.com/adamwdraper/Numeral-js)) hasn't been updated since 2017. And that's not a bad thing (if it's not broken, don't try to fix it), but as ECMAScript evolves and we drop browsers that we don't need to support anymore, I decided to give it a go at this and attempt to make a tree-shakeable version, using [Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) to leverage off locales.
 
 ## Usage
 
