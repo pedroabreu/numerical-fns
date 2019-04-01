@@ -1,4 +1,4 @@
-import largeNumber from "./largeNumber"
+import largeNumber from './largeNumber'
 
 test('original value with empty suffix when number smaller than 1000', () => {
     const number = 999

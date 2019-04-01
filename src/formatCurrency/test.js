@@ -1,17 +1,17 @@
-import formatCurrency from "./index"
+import formatCurrency from './index'
 
-import enUS from "../locale/en-us"
-import enGB from "../locale/en-gb"
+import enUS from '../locale/en-us'
+import enGB from '../locale/en-gb'
 
 // cf. https://stackoverflow.com/questions/54242039/intl-numberformat-space-character-does-not-match
-const parseExpected = (value) => value.replace(" ", "\xa0")
+const parseExpected = (value) => value.replace(' ', '\xa0')
 
 test('formats currency to USD by default as number', () => {
-    expect(formatCurrency(1)).toBe("$1.00")
+    expect(formatCurrency(1)).toBe('$1.00')
 })
 
 test('formats currency to USD by default as a string', () => {
-    expect(formatCurrency("1", { locale: enUS })).toBe("$1.00")
+    expect(formatCurrency('1', { locale: enUS })).toBe('$1.00')
 })
 
 test('formats currency defined locale and currency', () => {
