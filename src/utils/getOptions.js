@@ -1,7 +1,7 @@
 import defaultLocale from '../locale/en-us'
 
 const DEFAULT_OPTIONS = {
-    largeNumber: false,
+    asLargeNumber: false,
     useParentesis: false
 }
 
@@ -15,7 +15,7 @@ function getOptions(options = {}) {
     return Object.assign(
         currencyLocale,
         {
-            largeNumber: options.largeNumber || DEFAULT_OPTIONS.largeNumber,
+            asLargeNumber: options.asLargeNumber,
             useParentesis: options.useParentesis || DEFAULT_OPTIONS.useParentesis
         }
     )

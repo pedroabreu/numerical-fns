@@ -19,7 +19,7 @@ test('formats currency defined locale and currency', () => {
 })
 
 test('formats currency with scale option', () => {
-    expect(formatCurrency(1000, { locale: enGB, largeNumber: true })).toBe('£1.00 thousand')
+    expect(formatCurrency(1000, { locale: enGB, asLargeNumber: true })).toBe('£1.00 thousand')
 })
 
 test('formats negative currency', () => {
@@ -27,9 +27,9 @@ test('formats negative currency', () => {
 })
 
 test('formats negative currency with scale option', () => {
-    expect(formatCurrency(-1000, { locale: enGB, largeNumber: true })).toBe('-£1.00 thousand')
+    expect(formatCurrency(-1000, { locale: enGB, asLargeNumber: true })).toBe('-£1.00 thousand')
 })
 
 test('formats negative currency with scale option and parentesis', () => {
-    expect(formatCurrency(-1000, { locale: enGB, largeNumber: true, useParentesis: true })).toBe('(£1.00 thousand)')
+    expect(formatCurrency(-1000, { locale: enGB, asLargeNumber: true, useParentesis: true })).toBe('(£1.00 thousand)')
 })

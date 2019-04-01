@@ -4,7 +4,7 @@ function format(value, options) {
     let scaleSuffix
     let formattedValue = value
 
-    if (options.largeNumber) {
+    if (options.asLargeNumber) {
         const { value: scaledValue, suffix } = largeNumber(formattedValue)
         formattedValue = scaledValue
         scaleSuffix = suffix
@@ -12,7 +12,7 @@ function format(value, options) {
 
     formattedValue = new Intl.NumberFormat(options.locale, options).format(formattedValue)
 
-    if (options.largeNumber) {
+    if (options.asLargeNumber) {
         formattedValue = `${formattedValue} ${options.largeNumbers[scaleSuffix]}`
     }
 
