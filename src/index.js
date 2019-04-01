@@ -1,5 +1,7 @@
-import formatCurrency from "./formatCurrency/index.js"
+import formatCurrency from './formatCurrency'
+import formatDecimal from './formatDecimal'
 
 export {
-    formatCurrency
+    formatCurrency,
+    formatDecimal
 }
