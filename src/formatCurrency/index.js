@@ -9,23 +9,8 @@ const DEFAULT_OPTIONS = {
     useParentesis: false
 }
 
-export default function formatCurrency(value, options = {}) {
-    const currencyLocale = options.locale || defaultLocale
-
-    if (!currencyLocale.currency || !currencyLocale.locale) {
-        throw new Error("`currency` and `locale` are required in locale option")
-    }
-
-    const currencyOptions = Object.assign(
-        {},
-        currencyLocale,
-        {
-            currencyDisplay: options.currencyDisplay || DEFAULT_OPTIONS.currencyDisplay,
-            largeNumber: options.largeNumber || DEFAULT_OPTIONS.largeNumber,
-            style: DEFAULT_OPTIONS.style,
-            useParentesis: options.useParentesis || DEFAULT_OPTIONS.useParentesis
-        }
-    )
+function formatCurrency(value, options = {}) {
+    const currencyOptions = getOptions(options)
 
     let scaleSuffix
     let formattedValue = value
@@ -38,9 +23,8 @@ export default function formatCurrency(value, options = {}) {
 
     formattedValue = new Intl.NumberFormat(currencyOptions.locale, currencyOptions).format(formattedValue)
 
-    /* TODO Read abbreviations from locale */
     if (currencyOptions.largeNumber) {
-        formattedValue = `${formattedValue} ${scaleSuffix}`
+        formattedValue = `${formattedValue} ${currencyOptions.largeNumbers[scaleSuffix]}`
     }
 
     if (currencyOptions.useParentesis) {
@@ -49,3 +33,24 @@ export default function formatCurrency(value, options = {}) {
 
     return formattedValue
 }
+
+function getOptions(options) {
+    const currencyLocale = options.locale || defaultLocale
+
+    if (!currencyLocale.currency || !currencyLocale.locale) {
+        throw new Error("`currency` and `locale` are required in locale option")
+    }
+
+    return Object.assign(
+        {},
+        currencyLocale,
+        {
+            currencyDisplay: options.currencyDisplay || DEFAULT_OPTIONS.currencyDisplay,
+            largeNumber: options.largeNumber || DEFAULT_OPTIONS.largeNumber,
+            style: DEFAULT_OPTIONS.style,
+            useParentesis: options.useParentesis || DEFAULT_OPTIONS.useParentesis
+        }
+    )
+}
+
+export default formatCurrency
