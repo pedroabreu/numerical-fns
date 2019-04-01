@@ -27,10 +27,6 @@ export default function formatCurrency(value, options = {}) {
         }
     )
 
-    if (!currencyOptions.locale) {
-        throw new Error('Missing locale')
-    }
-
     let scaleSuffix
     let formattedValue = value
 
