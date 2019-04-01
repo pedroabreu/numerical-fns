@@ -12,7 +12,7 @@ function format(value, options) {
 
     formattedValue = new Intl.NumberFormat(options.locale, options).format(formattedValue)
 
-    if (options.asLargeNumber) {
+    if (options.asLargeNumber && options.largeNumbers[scaleSuffix]) {
         formattedValue = `${formattedValue} ${options.largeNumbers[scaleSuffix]}`
     }
 

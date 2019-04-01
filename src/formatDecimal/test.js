@@ -12,7 +12,7 @@ test('formats decimal as a string', () => {
 })
 
 test('formats decimal as large number', () => {
-    expect(formatDecimal(1000, { locale: enGB, asLargeNumber: true })).toBe('1 thousand')
+    expect(formatDecimal(1500.20, { locale: enGB, asLargeNumber: true })).toBe('1.5 thousand')
 })
 
 test('formats negative currency', () => {
