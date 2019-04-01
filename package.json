@@ -1,6 +1,6 @@
 {
   "name": "numerical-fns",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Collection of formatters to transform numbers",
   "main": "lib/cjs/index.js",
   "module": "lib/index.js",
