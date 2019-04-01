@@ -1,16 +1,13 @@
-import largeNumber from "../utils/largeNumber"
-
-import defaultLocale from '../locale/en-us'
+import largeNumber from '../utils/largeNumber'
+import getOptions from '../utils/getOptions'
 
 const DEFAULT_OPTIONS = {
     currencyDisplay: 'symbol',
-    largeNumber: false,
-    style: 'currency',
-    useParentesis: false
+    style: 'currency'
 }
 
 function formatCurrency(value, options = {}) {
-    const currencyOptions = getOptions(options)
+    const currencyOptions = getCurrencyOptions(options)
 
     let scaleSuffix
     let formattedValue = value
@@ -34,21 +31,18 @@ function formatCurrency(value, options = {}) {
     return formattedValue
 }
 
-function getOptions(options) {
-    const currencyLocale = options.locale || defaultLocale
+function getCurrencyOptions(options) {
+    const genericOptions = getOptions(options)
 
-    if (!currencyLocale.currency || !currencyLocale.locale) {
-        throw new Error("`currency` and `locale` are required in locale option")
+    if (!genericOptions.currency) {
+        throw new Error("`currency` is required")
     }
 
     return Object.assign(
-        {},
-        currencyLocale,
+        genericOptions,
         {
             currencyDisplay: options.currencyDisplay || DEFAULT_OPTIONS.currencyDisplay,
-            largeNumber: options.largeNumber || DEFAULT_OPTIONS.largeNumber,
-            style: DEFAULT_OPTIONS.style,
-            useParentesis: options.useParentesis || DEFAULT_OPTIONS.useParentesis
+            style: DEFAULT_OPTIONS.style
         }
     )
 }
