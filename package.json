@@ -1,7 +1,7 @@
 {
   "name": "numerical-fns",
   "version": "0.1.0",
-  "description": "Javascript library to format numbers",
+  "description": "Collection of formatters to transform numbers",
   "main": "lib/cjs/index.js",
   "module": "lib/index.js",
   "repository": "git@github.com:pedroabreu/numerical-fns.git",
@@ -10,7 +10,11 @@
     "numeral",
     "numerical",
     "format",
-    "currency"
+    "currency",
+    "internationalization",
+    "i18n",
+    "localization",
+    "locale"
   ],
   "license": "MIT",
   "scripts": {
