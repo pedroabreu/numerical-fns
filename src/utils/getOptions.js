@@ -5,11 +5,11 @@ const DEFAULT_OPTIONS = {
     useParentesis: false
 }
 
-function getOptions(options) {
+function getOptions(options = {}) {
     const currencyLocale = options.locale || defaultLocale
 
     if (!currencyLocale.locale) {
-        throw new Error("Missing `locale`")
+        throw new Error('`locale` is required')
     }
 
     return Object.assign(
