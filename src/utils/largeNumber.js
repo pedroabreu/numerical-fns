@@ -6,9 +6,9 @@ export default function largeNumber(value) {
     let newValue = valueSign * value
     let nrSuffixes = 0
 
-    while(newValue >= 1000) {
-        newValue = newValue / 1000
-        nrSuffixes++
+    while (newValue >= 1000) {
+        newValue /= 1000
+        nrSuffixes += 1
     }
 
     return { value: valueSign * newValue, suffix: SUFFIXES[nrSuffixes] }

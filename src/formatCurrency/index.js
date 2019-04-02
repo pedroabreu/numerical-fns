@@ -7,26 +7,22 @@ const DEFAULT_OPTIONS = {
     style: 'currency'
 }
 
-function formatCurrency(value, options) {
-    const currencyOptions = getCurrencyOptions(options)
-
-    return format(value, currencyOptions)
-}
-
 function getCurrencyOptions(options) {
     const genericOptions = getOptions(options)
 
     if (!genericOptions.currency) {
-        throw new Error("`currency` is required")
+        throw new Error('`currency` is required')
     }
 
-    return Object.assign(
-        genericOptions,
-        {
-            currencyDisplay: genericOptions.currencyDisplay || DEFAULT_OPTIONS.currencyDisplay,
-            style: DEFAULT_OPTIONS.style
-        }
-    )
+    return Object.assign(genericOptions, {
+        currencyDisplay:
+            genericOptions.currencyDisplay || DEFAULT_OPTIONS.currencyDisplay,
+        style: DEFAULT_OPTIONS.style
+    })
 }
 
-export default formatCurrency
+export default function formatCurrency(value, options) {
+    const currencyOptions = getCurrencyOptions(options)
+
+    return format(value, currencyOptions)
+}

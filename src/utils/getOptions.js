@@ -5,25 +5,6 @@ const DEFAULT_OPTIONS = {
     useParentesis: false
 }
 
-function getOptions(options = {}) {
-    const optionsLocale = options.locale || defaultLocale
-
-    if (!optionsLocale.locale) {
-        throw new Error('`locale` is required')
-    }
-
-    const nativeOptions = getNativeOptions(options)
-
-    return Object.assign(
-        optionsLocale,
-        {
-            asLargeNumber: options.asLargeNumber || DEFAULT_OPTIONS.asLargeNumber,
-            useParentesis: options.useParentesis || DEFAULT_OPTIONS.useParentesis
-        },
-        nativeOptions
-    )
-}
-
 // native options - Ideally would use spread but want to avoid babel plugins
 function getNativeOptions(options) {
     const nativeOptions = {}
@@ -49,14 +30,35 @@ function getNativeOptions(options) {
     }
 
     if (options.minimumSignificantDigits) {
-        nativeOptions.minimumSignificantDigits = options.minimumSignificantDigits
+        nativeOptions.minimumSignificantDigits =
+            options.minimumSignificantDigits
     }
 
     if (options.maximumSignificantDigits) {
-        nativeOptions.maximumSignificantDigits = options.maximumSignificantDigits
+        nativeOptions.maximumSignificantDigits =
+            options.maximumSignificantDigits
     }
 
     return nativeOptions
 }
 
-export default getOptions
+export default function getOptions(options = {}) {
+    const optionsLocale = options.locale || defaultLocale
+
+    if (!optionsLocale.locale) {
+        throw new Error('`locale` is required')
+    }
+
+    const nativeOptions = getNativeOptions(options)
+
+    return Object.assign(
+        optionsLocale,
+        {
+            asLargeNumber:
+                options.asLargeNumber || DEFAULT_OPTIONS.asLargeNumber,
+            useParentesis:
+                options.useParentesis || DEFAULT_OPTIONS.useParentesis
+        },
+        nativeOptions
+    )
+}

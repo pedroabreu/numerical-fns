@@ -16,5 +16,7 @@ test('formats negative percentage', () => {
 })
 
 test('formats negative percentage with parentesis', () => {
-    expect(formatPercentage(-1000, { locale: enGB, useParentesis: true })).toBe('(100,000%)')
+    expect(formatPercentage(-1000, { locale: enGB, useParentesis: true })).toBe(
+        '(100,000%)'
+    )
 })

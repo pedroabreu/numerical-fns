@@ -1,7 +1,4 @@
-import enGB from "./en-gb"
-import enUS from "./en-us"
+import enGB from './en-gb'
+import enUS from './en-us'
 
-export {
-    enGB,
-    enUS
-}
+export { enGB, enUS }

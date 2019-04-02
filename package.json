@@ -18,11 +18,15 @@
   ],
   "license": "MIT",
   "scripts": {
-    "precommit": "run-p test lint --fix",
     "prepublishOnly": "run-s test bundle",
     "lint": "eslint src/*",
     "bundle": "rollup -c",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "run-p test lint"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

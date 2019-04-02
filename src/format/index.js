@@ -10,10 +10,14 @@ function format(value, options) {
         scaleSuffix = suffix
     }
 
-    formattedValue = new Intl.NumberFormat(options.locale, options).format(formattedValue)
+    formattedValue = new Intl.NumberFormat(options.locale, options).format(
+        formattedValue
+    )
 
     if (options.asLargeNumber && options.largeNumbers[scaleSuffix]) {
-        formattedValue = `${formattedValue} ${options.largeNumbers[scaleSuffix]}`
+        formattedValue = `${formattedValue} ${
+            options.largeNumbers[scaleSuffix]
+        }`
     }
 
     if (options.useParentesis) {
