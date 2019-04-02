@@ -25,7 +25,7 @@ formatCurrency(1) // Output: $1.00
 
 - ✅ Currency
 - ✅ Decimal
-- 🔜 Percentage
+- ✅ Percentage
 
 
 ### Currency
@@ -60,7 +60,7 @@ Decimal formatter takes two arguments, value to format and options.
 import { formatDecimal } from 'numerical-fns'
 
 
-formatDecimal(1.20, { locale: { locale: 'en-US', currency: 'USD' }, largeNumber: false, useParentesis: false })
+formatDecimal(1.20, { locale: { locale: 'en-US' }, asLargeNumber: false, useParentesis: false })
 // Output: 1.20
 ```
 
@@ -74,4 +74,27 @@ formatDecimal(1.20, { locale: { locale: 'en-US', currency: 'USD' }, largeNumber:
 | --- | --- | --- |
 | locale | locale object that contains `locale` and `largeNumbers` i18n | `en-US` see `locales/en-us.js` |
 | asLargeNumbers | add suffix to the formatted number. Ex: `$100 thousand` | false |
+| useParentesis | wrap formatted in parentesis instead of `-` sign | false |
+
+### Percentage
+
+Percentage formatter takes two arguments, value to format and options.
+
+```js
+import { formatPercentage } from 'numerical-fns'
+
+
+formatPercentage(1.20, { locale: { locale: 'en-US' }, useParentesis: false })
+// Output: 120%
+```
+
+`value` - `Number` or `String`
+
+`options` - `Object`
+
+#### Options
+
+| Name | description | default |
+| --- | --- | --- |
+| locale | locale object that contains `locale` or your own, as long as it has locale defined | `en-US` see `locales/en-us.js` |
 | useParentesis | wrap formatted in parentesis instead of `-` sign | false |
