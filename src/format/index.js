@@ -5,7 +5,10 @@ function format(value, options) {
     let formattedValue = value
 
     if (options.asLargeNumber) {
-        const { value: scaledValue, suffix } = largeNumber(formattedValue)
+        const { value: scaledValue, suffix } = largeNumber(
+            formattedValue,
+            options.largeNumbers
+        )
         formattedValue = scaledValue
         scaleSuffix = suffix
     }
@@ -14,10 +17,8 @@ function format(value, options) {
         formattedValue
     )
 
-    if (options.asLargeNumber && options.largeNumbers[scaleSuffix]) {
-        formattedValue = `${formattedValue} ${
-            options.largeNumbers[scaleSuffix]
-        }`
+    if (options.asLargeNumber) {
+        formattedValue = `${formattedValue} ${scaleSuffix}`
     }
 
     if (options.useParentesis) {

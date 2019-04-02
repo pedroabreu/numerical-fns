@@ -51,11 +51,15 @@ export default function getOptions(options = {}) {
 
     const nativeOptions = getNativeOptions(options)
 
+    const hasLargeNumbersDefined =
+        Object.keys(optionsLocale.largeNumbers).length > 0
+
     return Object.assign(
         optionsLocale,
         {
             asLargeNumber:
-                options.asLargeNumber || DEFAULT_OPTIONS.asLargeNumber,
+                hasLargeNumbersDefined &&
+                (options.asLargeNumber || DEFAULT_OPTIONS.asLargeNumber),
             useParentesis:
                 options.useParentesis || DEFAULT_OPTIONS.useParentesis
         },

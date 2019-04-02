@@ -1,15 +1,20 @@
-const SUFFIXES = ['', 'thousand', 'million', 'billion', 'trillion']
-
 // Inspired by https://gist.github.com/tobyjsullivan/96d37ca0216adee20fa95fe1c3eb56ac
-export default function largeNumber(value) {
-    const valueSign = value >= 0 ? 1 : -1
-    let newValue = valueSign * value
+export default function largeNumber(value, largeNumbers) {
+    let newValue = value
     let nrSuffixes = 0
+    const suffixes = Object.keys(largeNumbers)
 
-    while (newValue >= 1000) {
-        newValue /= 1000
-        nrSuffixes += 1
+    if (Math.abs(value) >= 1000) {
+        for (let i = 0; i < suffixes.length; i++) {
+            const pow = suffixes[i]
+            newValue = value / 10 ** pow
+
+            if (Math.abs(newValue) <= 1000) {
+                nrSuffixes = pow
+                break
+            }
+        }
     }
 
-    return { value: valueSign * newValue, suffix: SUFFIXES[nrSuffixes] }
+    return { value: newValue, suffix: largeNumbers[nrSuffixes] || '' }
 }
