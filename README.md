@@ -21,6 +21,8 @@ import { formatCurrency } from 'numerical-fns'
 formatCurrency(1) // Output: $1.00
 ```
 
+`numerical-fns` package contains `esm` and `CommonJS` modules
+
 ## Formatters
 
 - ✅ Currency
